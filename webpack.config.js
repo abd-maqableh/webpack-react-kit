@@ -5,6 +5,13 @@ module.exports = {
   entry: "./src/index.js",
   resolve: {
     extensions: [".js", ".jsx"],
+    modules: [
+      "node_modules",
+      "./src/components",
+      "./src/pages",
+      "./src",
+      "./src/assets",
+    ],
   },
   module: {
     rules: [
@@ -22,8 +29,8 @@ module.exports = {
           {
             loader: "sass-loader",
             options: {
-              modules: {
-                localIdentName: "[name]__[local]___[hash:base64:5]",
+              sassOptions: {
+                includePaths: ["./src/assets/scss"],
               },
               sourceMap: true,
               implementation: require("sass"),
